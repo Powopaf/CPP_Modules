@@ -1,9 +1,12 @@
 #ifndef CONTACT_HPP
 #define CONTACT_HPP
 
-class Contact {
-	private:
+#include <string>
 
-}
+class Contact {
+	public:
+		int id;
+		std::string name;
+};
 
 #endif

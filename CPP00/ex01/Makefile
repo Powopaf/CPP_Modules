@@ -1,9 +1,10 @@
 CC = g++
 CFLAGS =  -Wall -Wextra -Werror -MMD -MP
-NAME = megaphone
+NAME = phone.out
 LIBS =
 
-SRC = $(shell find . -name "*.cpp")
+SRC = ./main.cpp
+
 OBJ = $(addprefix .obj/,$(SRC:.cpp=.o))
 DEP = $(addprefix .obj/,$(SRC:.cpp=.d))
 
