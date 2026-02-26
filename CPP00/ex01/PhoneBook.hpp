@@ -4,6 +4,6 @@
 class PhoneBook {
 	private:
 		char constact[8];
-}
+};
 
 #endif

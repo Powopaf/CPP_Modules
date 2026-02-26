@@ -3,7 +3,7 @@ CFLAGS =  -Wall -Wextra -Werror -MMD -MP
 NAME = megaphone
 LIBS =
 
-SRC = $(shell find . -name "*.cpp")
+SRC = ./megaphone.cpp
 OBJ = $(addprefix .obj/,$(SRC:.cpp=.o))
 DEP = $(addprefix .obj/,$(SRC:.cpp=.d))
 
