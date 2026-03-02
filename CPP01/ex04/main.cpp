@@ -13,21 +13,14 @@ static int copy(std::ifstream& in, std::ofstream& out, std::string s1, std::stri
 			std::cerr << "Error reading file" << std::endl;
 			return 1;
 		}
-		size_t pos = 0;
-		size_t found = 0;
-		while ((found = line.find(s1, pos)) != std::string::npos) {
-			// Write everything from pos to found
-			for (size_t i = pos; i < found; i++) {
-				out << line[i];
+		for (size_t i = 0; i < line.size();) {
+			size_t pos = line.find(s1, i);
+			if (pos == std::string::npos) {
+				out << line.substr(i);
+				break;
 			}
-			// Write the replacement
-			out << s2;
-			// Move past the found string
-			pos = found + s1.size();
-		}
-		// Write remaining characters
-		for (size_t i = pos; i < line.size(); i++) {
-			out << line[i];
+			out << line.substr(i, pos - i) << s2;
+			i = pos + s1.size();
 		}
 		out << std::endl;
 	}
