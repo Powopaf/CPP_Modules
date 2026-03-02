@@ -40,6 +40,7 @@ int main(int argc, char** argv) {
 	}
 	std::ofstream out((std::string(argv[1]) + ".replace").c_str(), std::ios::out | std::ios::trunc);
 	if (!out.is_open()) {
+		file.close();
 		std::cerr << "Error opening output file" << std::endl;
 		return 1;
 	}
