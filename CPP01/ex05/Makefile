@@ -1,9 +1,10 @@
 CC = g++
 CFLAGS =  -Wall -Wextra -Werror -MMD -MP -std=c++98
-NAME = copy.out
+NAME = harl.out
 LIBS =
 
 SRC = ./main.cpp \
+	  ./Harl.cpp
 
 OBJ = $(addprefix .obj/,$(SRC:.cpp=.o))
 DEP = $(addprefix .obj/,$(SRC:.cpp=.d))
