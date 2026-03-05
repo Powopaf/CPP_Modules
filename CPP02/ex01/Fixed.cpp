@@ -1,5 +1,6 @@
 #include "Fixed.hpp"
 #include <iostream>
+#include <cmath>
 
 Fixed::Fixed(const int num) {
 	std::cout << "Int constructor called" << std::endl;
@@ -8,7 +9,7 @@ Fixed::Fixed(const int num) {
 
 Fixed::Fixed(const float num) {
 	std::cout << "Float constructor called" << std::endl;
-	fix_num = (int)(num * (1 << bits));
+	fix_num = (int)roundf((num * (1 << bits)));
 }
 
 Fixed::Fixed() {
@@ -47,7 +48,7 @@ float Fixed::toFloat(void) const {
 }
 
 int Fixed::toInt(void) const {
-	return (int)fix_num >> bits;
+	return (int)roundf((float)fix_num / (1 << bits));
 }
 
 std::ostream& operator<<(std::ostream& out, const Fixed& fixed) {
