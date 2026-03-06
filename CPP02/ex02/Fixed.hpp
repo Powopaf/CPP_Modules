@@ -1,6 +1,8 @@
 #ifndef FIXED_HPP
 #define FIXED_HPP
 
+#include <iostream>
+
 class Fixed {
 	private:
 		int	mantissa;
@@ -9,8 +11,8 @@ class Fixed {
 		Fixed();
 		Fixed(int const num);
 		Fixed(float const num);
-		Fixed(Fixed& copy);
-		~Fixed();
+		Fixed(const Fixed& copy);
+		virtual ~Fixed();
 
 		Fixed& operator=(const Fixed& fixed);
 		bool operator>(const Fixed& other) const;
@@ -19,10 +21,10 @@ class Fixed {
 		bool operator<=(const Fixed& other) const;
 		bool operator==(const Fixed& other) const;
 		bool operator!=(const Fixed& other) const;
-		friend Fixed operator+(Fixed& f1, const Fixed f2);
-		friend Fixed operator-(Fixed& f1, const Fixed f2);
-		friend Fixed operator*(Fixed& f1, const Fixed f2);
-		friend Fixed operator/(Fixed& f1, const Fixed f2);
+		friend Fixed operator+(const Fixed& f1, const Fixed f2);
+		friend Fixed operator-(const Fixed& f1, const Fixed f2);
+		friend Fixed operator*(const Fixed& f1, const Fixed f2);
+		friend Fixed operator/(const Fixed& f1, const Fixed f2);
 		Fixed& operator++();
 		Fixed operator++(int);
 		Fixed& operator--();
@@ -37,5 +39,7 @@ class Fixed {
 		static Fixed& max(Fixed f1, Fixed& f2);
 		static Fixed& max(const Fixed& f1, const Fixed& f2);
 };
+
+std::ostream& operator<<(std::ostream& out, const Fixed& fixed);
 
 #endif
