@@ -1,4 +1,5 @@
 #include "ScavTrap.hpp"
+#include "FragTrap.hpp"
 #include <iostream>
 
 int main() {
@@ -56,6 +57,28 @@ int main() {
 		scav3.takeDamage(70);
 		scav3.beRepaired(60);
 		scav3.guardGate();
+	}
+	std::cout << "\n=== FragTrap Tests ===" << std::endl;
+	{
+		FragTrap frag("Fraggy");
+		frag.attack("a target");
+		frag.takeDamage(30);
+		frag.beRepaired(20);
+		frag.highFivesGuys();
+	}
+	{
+		FragTrap frag2("Fraggy2");
+		frag2.attack("another target");
+		frag2.takeDamage(50);
+		frag2.beRepaired(40);
+		frag2.highFivesGuys();
+	}
+	{
+		FragTrap frag3("Fraggy3");
+		frag3.attack("yet another target");
+		frag3.takeDamage(70);
+		frag3.beRepaired(60);
+		frag3.highFivesGuys();
 	}
 	return 0;
 }
