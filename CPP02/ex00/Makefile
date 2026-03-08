@@ -1,4 +1,4 @@
-CC = g++
+CC = c++
 CFLAGS =  -Wall -Wextra -Werror -MMD -MP -std=c++98 -g -fsanitize=address
 NAME = fixed.out
 LIBS = -fsanitize=address

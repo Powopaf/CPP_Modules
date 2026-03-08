@@ -1,4 +1,4 @@
-CC = g++
+CC = c++
 CFLAGS =  -Wall -Wextra -Werror -MMD -MP -std=c++98
 NAME = human.out
 LIBS =
