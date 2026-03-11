@@ -1,0 +1,18 @@
+#ifndef DOG_HPP
+#define DOG_HPP
+
+#include "Animal.hpp"
+#include <string>
+
+class Dog : public Animal {
+	private:
+		std::string name;
+	public:
+		Dog();
+		Dog(const std::string name);
+		Dog(const Dog& copy);
+		virtual ~Dog();
+		Dog& operator=(const Dog& other);
+};
+
+#endif
