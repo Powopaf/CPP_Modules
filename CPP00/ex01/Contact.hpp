@@ -4,9 +4,14 @@
 #include <string>
 
 class Contact {
-	public:
-		int id;
+	private:
 		std::string name;
+		int id;
+	public:
+		Contact();
+		Contact(std::string name, int id);
+		std::string getName() const;
+		int getId() const;
 };
 
 #endif

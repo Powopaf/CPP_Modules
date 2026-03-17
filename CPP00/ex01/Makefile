@@ -1,9 +1,11 @@
 CC = c++
-CFLAGS =  -Wall -Wextra -Werror -MMD -MP
+CFLAGS =  -Wall -Wextra -Werror -MMD -MP -g
 NAME = phone.out
 LIBS =
 
-SRC = ./main.cpp
+SRC = ./main.cpp \
+	  ./Contact.cpp \
+	  ./PhoneBook.cpp
 
 OBJ = $(addprefix .obj/,$(SRC:.cpp=.o))
 DEP = $(addprefix .obj/,$(SRC:.cpp=.d))

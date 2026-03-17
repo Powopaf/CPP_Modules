@@ -4,8 +4,13 @@
 #include "Contact.hpp"
 
 class PhoneBook {
+	private:
+		static const int MAX_CONTACTS = 8;
+		Contact contacts[MAX_CONTACTS];
 	public:
-		Contact contacts[8];
+		PhoneBook();
+		void addContact(int index);
+		void searchContact() const;
 };
 
 #endif
