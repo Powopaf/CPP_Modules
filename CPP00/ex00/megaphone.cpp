@@ -1,21 +1,12 @@
 #include <iostream>
+#include <cctype>
 
-int main(int argc, char **argv)
-{
-	if (argc == 1) {
-		std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *" << std::endl;
-		return (0);
+int	main(int ac, char **av) {
+	if (ac == 1)
+		return (std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *\n", 0);
+	while (*++av) {
+		for (int i = 0; (*av)[i]; i++)
+			std::cout << (char)std::toupper((unsigned char)(*av)[i]);
 	}
-	for (int i = 1; i < argc; i++) {
-		for (int j = 0; argv[i][j] != '\0'; j++) {
-			if (argv[i][j] >= 'a' && argv[i][j] <= 'z') {
-				std::cout << (char)(argv[i][j] - ('a' - 'A'));
-			}
-			else {
-				std::cout << argv[i][j];
-			}
-		}
-	}
-	std::cout << std::endl;
-	return (0);
+	return (std::cout << '\n', 0);
 }

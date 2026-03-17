@@ -5,13 +5,22 @@
 
 class Contact {
 	private:
-		std::string name;
-		int id;
+		std::string firstName;
+		std::string lastName;
+		std::string nickname;
+		std::string phoneNumber;
+		std::string darkestSecret;
 	public:
 		Contact();
-		Contact(std::string name, int id);
-		std::string getName() const;
-		int getId() const;
+		Contact(const std::string &firstName, const std::string &lastName,
+			const std::string &nickname, const std::string &phoneNumber,
+			const std::string &darkestSecret);
+		std::string getFirstName() const;
+		std::string getLastName() const;
+		std::string getNickname() const;
+		std::string getPhoneNumber() const;
+		std::string getDarkestSecret() const;
+		void display() const;
 };
 
 #endif

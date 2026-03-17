@@ -1,5 +1,6 @@
 #include "PhoneBook.hpp"
 #include <iostream>
+#include <limits>
 
 PhoneBook::PhoneBook() {
 	for (int i = 0; i < MAX_CONTACTS; i++) {
@@ -16,27 +17,44 @@ static bool isDigits(const std::string &str) {
 	return true;
 }
 
-void PhoneBook::addContact(int index) {
-	std::cout << "Enter name: ";
-	std::string name;
-	std::cin >> name;
-	std::string id;
+static bool readField(const std::string &prompt, std::string &value) {
 	do {
-		std::cout << "Enter id: ";
-		std::cin >> id;
-	} while (id.empty() || !isDigits(id));
-	this->contacts[index % MAX_CONTACTS] = Contact(name, std::stoi(id));
+		std::cout << prompt;
+		if (!std::getline(std::cin, value)) {
+			return false;
+		}
+	} while (value.empty());
+	return true;
+}
+
+void PhoneBook::addContact(int index) {
+	std::string firstName;
+	std::string lastName;
+	std::string nickname;
+	std::string phoneNumber;
+	std::string darkestSecret;
+
+	std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+	if (!readField("Enter first name: ", firstName)
+		|| !readField("Enter last name: ", lastName)
+		|| !readField("Enter nickname: ", nickname)
+		|| !readField("Enter phone number: ", phoneNumber)
+		|| !readField("Enter darkest secret: ", darkestSecret)) {
+		return;
+	}
+	this->contacts[index % MAX_CONTACTS] = Contact(firstName, lastName,
+		nickname, phoneNumber, darkestSecret);
 }
 
 void PhoneBook::searchContact() const {
 	for (int i = 0; i < MAX_CONTACTS; i++) {
-		if (contacts[i].getName().length() == 0) {
+		if (contacts[i].getFirstName().length() == 0) {
 			continue;
 		}
-		if (contacts[i].getName().length() < 11) {
-			std::cout << contacts[i].getName() << "|";
+		if (contacts[i].getFirstName().length() < 11) {
+			std::cout << contacts[i].getFirstName() << "|";
 		} else {
-			std::cout << contacts[i].getName().substr(0, 9) << ".|";
+			std::cout << contacts[i].getFirstName().substr(0, 9) << ".|";
 		}
 	}
 	std::cout << std::endl;
@@ -44,16 +62,18 @@ void PhoneBook::searchContact() const {
 	do {
 		std::cout << "Enter index to display: ";
 		std::cin >> input;
+		if (std::cin.eof()) {
+			return;
+		}
 	} while (input.empty() || !isDigits(input));
 	int idx = std::stoi(input);
 	if (idx < 0 || idx >= MAX_CONTACTS) {
 		std::cout << "Invalid index." << std::endl;
 		return;
 	}
-	if (contacts[idx].getName().length() == 0) {
+	if (contacts[idx].getFirstName().length() == 0) {
 		std::cout << "No contact at this index." << std::endl;
 		return;
 	}
-	std::cout << "Name: " << contacts[idx].getName() << std::endl;
-	std::cout << "ID: " << contacts[idx].getId() << std::endl;
+	contacts[idx].display();
 }
