@@ -47,18 +47,22 @@ void PhoneBook::addContact(int index) {
 }
 
 void PhoneBook::searchContact() const {
-	for (int i = 0; i < MAX_CONTACTS; i++) {
-		if (contacts[i].getFirstName().length() == 0) {
-			continue;
+	for (int i = 0; i < MAX_CONTACTS && contacts[i].getFirstName().length() > 0; i++) {
+		std::cout << i << "|";
+		std::string firstName = contacts[i].getFirstName();
+		std::string lastName = contacts[i].getLastName();
+		std::string nickname = contacts[i].getNickname();
+		if (firstName.length() > 10) {
+			firstName = firstName.substr(0, 9) + ".";
 		}
-		if (contacts[i].getFirstName().length() < 11) {
-			std::cout << contacts[i].getFirstName() << "|";
-		} else {
-			std::cout << contacts[i].getFirstName().substr(0, 9) << ".|";
+		if (lastName.length() > 10) {
+			lastName = lastName.substr(0, 9) + ".";
 		}
-	}
-	std::cout << std::endl;
-	std::string input;
+		if (nickname.length() > 10) {
+			nickname = nickname.substr(0, 9) + ".";
+		}
+		std::cout << firstName << "|" << lastName << "|" << nickname << std::endl;
+	}	std::string input;
 	do {
 		std::cout << "Enter index to display: ";
 		std::cin >> input;
