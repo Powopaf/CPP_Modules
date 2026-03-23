@@ -1,5 +1,5 @@
 CC = c++
-CFLAGS =  -Wall -Wextra -Werror -MMD -MP -g
+CFLAGS =  -Wall -Wextra -Werror -MMD -MP -std=c++98 -g
 NAME = phone.out
 LIBS =
 

@@ -1,6 +1,8 @@
 #include "PhoneBook.hpp"
 #include <iostream>
 #include <limits>
+#include <cstdlib>
+#include <iomanip>
 
 PhoneBook::PhoneBook() {
 	for (int i = 0; i < MAX_CONTACTS; i++) {
@@ -27,6 +29,13 @@ static bool readField(const std::string &prompt, std::string &value) {
 	return true;
 }
 
+static std::string formatColumn(const std::string &value) {
+	if (value.length() > 10) {
+		return value.substr(0, 9) + ".";
+	}
+	return value;
+}
+
 void PhoneBook::addContact(int index) {
 	std::string firstName;
 	std::string lastName;
@@ -48,21 +57,12 @@ void PhoneBook::addContact(int index) {
 
 void PhoneBook::searchContact() const {
 	for (int i = 0; i < MAX_CONTACTS && contacts[i].getFirstName().length() > 0; i++) {
-		std::cout << i << "|";
-		std::string firstName = contacts[i].getFirstName();
-		std::string lastName = contacts[i].getLastName();
-		std::string nickname = contacts[i].getNickname();
-		if (firstName.length() > 10) {
-			firstName = firstName.substr(0, 9) + ".";
-		}
-		if (lastName.length() > 10) {
-			lastName = lastName.substr(0, 9) + ".";
-		}
-		if (nickname.length() > 10) {
-			nickname = nickname.substr(0, 9) + ".";
-		}
-		std::cout << firstName << "|" << lastName << "|" << nickname << std::endl;
-	}	std::string input;
+		std::cout << std::setw(10) << i << "|"
+			<< std::setw(10) << formatColumn(contacts[i].getFirstName()) << "|"
+			<< std::setw(10) << formatColumn(contacts[i].getLastName()) << "|"
+			<< std::setw(10) << formatColumn(contacts[i].getNickname()) << std::endl;
+	}
+	std::string input;
 	do {
 		std::cout << "Enter index to display: ";
 		std::cin >> input;
@@ -70,7 +70,7 @@ void PhoneBook::searchContact() const {
 			return;
 		}
 	} while (input.empty() || !isDigits(input));
-	int idx = std::stoi(input);
+	int idx = std::atoi(input.c_str());
 	if (idx < 0 || idx >= MAX_CONTACTS) {
 		std::cout << "Invalid index." << std::endl;
 		return;
