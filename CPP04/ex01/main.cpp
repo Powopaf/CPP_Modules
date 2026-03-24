@@ -1,7 +1,6 @@
 #include "Animal.hpp"
 #include "Dog.hpp"
 #include "Cat.hpp"
-#include <iostream>
 
 int main() {
 	const int size = 10;
