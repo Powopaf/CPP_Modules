@@ -1,6 +1,14 @@
 #include "Zombie.hpp"
 #include <iostream>
 
+Zombie::Zombie() {
+	name = "";
+}
+
+Zombie::Zombie(const Zombie& other) {
+	*this = other;
+}
+
 void Zombie::announce(void) {
 	std::cout << name << ": BraiiiiiiinnnzzzZ..." << std::endl;
 }
