@@ -9,7 +9,7 @@ class Zombie {
 	
 	public:
 		Zombie();
-		~Zombie() {}
+		~Zombie();
 		Zombie(const Zombie& other);
 
 		void announce(void);
