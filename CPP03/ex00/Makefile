@@ -1,7 +1,7 @@
 CC = c++
-CFLAGS =  -Wall -Wextra -Werror -MMD -MP -std=c++98 -g -fsanitize=address
+CFLAGS =  -Wall -Wextra -Werror -MMD -MP -std=c++98
 NAME = claptrap.out
-LIBS = -fsanitize=address
+LIBS =
 
 SRC = ./main.cpp \
 	  ./ClapTrap.cpp

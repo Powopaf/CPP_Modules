@@ -1,7 +1,7 @@
 CC = c++
-CFLAGS =  -Wall -Wextra -Werror -MMD -MP -std=c++98 -g -fsanitize=address
+CFLAGS =  -Wall -Wextra -Werror -MMD -MP -std=c++98 -g
 NAME = scavTrap.out
-LIBS = -fsanitize=address
+LIBS =
 
 SRC = ./main.cpp \
 	  ./ClapTrap.cpp \
