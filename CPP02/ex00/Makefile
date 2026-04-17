@@ -1,7 +1,7 @@
 CC = c++
-CFLAGS =  -Wall -Wextra -Werror -MMD -MP -std=c++98 -g -fsanitize=address
+CFLAGS =  -Wall -Wextra -Werror -MMD -MP -std=c++98
 NAME = fixed.out
-LIBS = -fsanitize=address
+LIBS =
 
 SRC = ./main.cpp \
 	  ./Fixed.cpp
