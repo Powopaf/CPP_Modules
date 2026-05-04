@@ -1,4 +1,8 @@
+#ifndef MATERIASOURCE_HPP
+#define MATERIASOURCE_HPP
+
 #include "IMateriaSource.hpp"
+#include "AMateria.hpp"
 
 class MateriaSource : public IMateriaSource {
 	private:
@@ -12,3 +16,5 @@ class MateriaSource : public IMateriaSource {
 		virtual void learnMateria(AMateria*);
 		virtual AMateria* createMateria(std::string const & type);
 };
+
+#endif
