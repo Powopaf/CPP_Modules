@@ -1,9 +1,15 @@
 CC = c++
 CFLAGS =  -Wall -Wextra -Werror -MMD -MP -std=c++98
-NAME = animal.out
+NAME = materia.out
 LIBS =
 
-SRC = ./main.cpp
+SRC = ./main.cpp \
+	  ./AMateria.cpp \
+	  ./Character.cpp \
+	  ./Cure.cpp \
+	  ./Ice.cpp \
+	  ./MateriaSource.cpp
+
 OBJ = $(addprefix .obj/,$(SRC:.cpp=.o))
 DEP = $(addprefix .obj/,$(SRC:.cpp=.d))
 
