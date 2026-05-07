@@ -10,7 +10,12 @@ MateriaSource::MateriaSource(const MateriaSource &copy) {
 		materias[i] = copy.materias[i];
 }
 
-MateriaSource::~MateriaSource() {}
+MateriaSource::~MateriaSource() {
+	for (int i = 0; i < 4; i++) {
+		if (materias[i] != NULL)
+			delete materias[i];
+	}
+}
 
 MateriaSource &MateriaSource::operator=(const MateriaSource &copy) {
 	if (this == &copy)

@@ -13,7 +13,12 @@ Character::Character(const Character &copy) {
 		inventory[i] = copy.inventory[i];
 }
 
-Character::~Character() {}
+Character::~Character() {
+	for (int i = 0; i < 4; i++) {
+		if (inventory[i] != NULL)
+			delete inventory[i];
+	}
+}
 
 Character &Character::operator=(const Character &copy) {
 	if (this == &copy)
