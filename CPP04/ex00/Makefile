@@ -6,7 +6,9 @@ LIBS =
 SRC = ./main.cpp \
 	  ./Animal.cpp \
 	  ./Cat.cpp \
-	  ./Dog.cpp
+	  ./Dog.cpp \
+	  ./WrongAnimal.cpp \
+	  ./WrongCat.cpp
 
 OBJ = $(addprefix .obj/,$(SRC:.cpp=.o))
 DEP = $(addprefix .obj/,$(SRC:.cpp=.d))

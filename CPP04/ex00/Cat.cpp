@@ -1,11 +1,12 @@
 #include "Cat.hpp"
+#include <iostream>
 
-Cat::Cat() : Animal("Meow") {
+Cat::Cat() {
 	name = "";
 	type = "Cat";
 }
 
-Cat::Cat(const std::string name) : Animal("Meow") {
+Cat::Cat(const std::string name) {
 	this->name = name;
 	type = "Cat";
 }
@@ -25,4 +26,8 @@ Cat& Cat::operator=(const Cat& other) {
 		type = other.type;
 	}
 	return *this;
+}
+
+void Cat::makeSound() {
+	std::cout << "Meow" << std::endl;
 }

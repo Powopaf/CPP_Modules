@@ -1,11 +1,12 @@
 #include "Dog.hpp"
+#include <iostream>
 
-Dog::Dog() : Animal("Woof") {
+Dog::Dog() {
 	name = "";
 	type = "Dog";
 }
 
-Dog::Dog(const std::string name) : Animal("Woof") {
+Dog::Dog(const std::string name) {
 	this->name = name;
 	type = "Dog";
 }
@@ -25,4 +26,8 @@ Dog& Dog::operator=(const Dog& other) {
 		type = other.type;
 	}
 	return *this;
+}
+
+void Dog::makeSound() {
+	std::cout << "Woof" << std::endl;
 }
