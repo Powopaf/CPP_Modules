@@ -5,18 +5,21 @@ Dog::Dog() : Animal("Woof") {
 	name = "";
 	type = "Dog";
 	brain = new Brain();
+	std::cout << "Dog constructor called" << std::endl;
 }
 
 Dog::Dog(const std::string name) : Animal("Woof") {
 	this->name = name;
 	type = "Dog";
 	brain = new Brain();
+	std::cout << "Dog constructor called" << std::endl;
 }
 
 Dog::Dog(const Dog& copy) : Animal(copy) {
 	name = copy.name;
 	type = copy.type;
 	brain = new Brain(*copy.brain);
+	std::cout << "Dog copy constructor called" << std::endl;
 }
 
 Dog::~Dog() {
@@ -32,4 +35,12 @@ Dog& Dog::operator=(const Dog& other) {
 		*brain = *other.brain;
 	}
 	return *this;
+}
+
+void Dog::makeSound() {
+	std::cout << "Woof" << std::endl;
+}
+
+Brain* Dog::getBrain() const {
+	return brain;
 }

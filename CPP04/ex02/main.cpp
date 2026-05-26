@@ -4,11 +4,11 @@
 #include <iostream>
 
 int main() {
-	std::cout << "--- Abstract class demo ---" << std::endl;
-	std::cout << "Animal cannot be instantiated directly because makeSound is pure virtual." << std::endl;
-	std::cout << "(Uncomment the next line to see compile error)" << std::endl;
-	//Animal impossible;
+	std::cout << "--- Abstract Animal test ---" << std::endl;
+	std::cout << "Animal is abstract: direct instantiation must fail." << std::endl;
+	//Animal a = Animal(); // This should fail to compile
 
+	std::cout << "\nTest: polymorphism through Animal pointers" << std::endl;
 	Animal* zoo[4];
 	zoo[0] = new Dog();
 	zoo[1] = new Cat();

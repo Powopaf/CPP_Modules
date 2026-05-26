@@ -4,16 +4,19 @@
 Animal::Animal(){
 	type = "";
 	sound = "";
+	std::cout << "Animal constructor called" << std::endl;
 }
 
 Animal::Animal(const std::string& sound) {
 	this->type = "";
 	this->sound = sound;
+	std::cout << "Animal constructor called" << std::endl;
 }
 
 Animal::Animal(const Animal& copy){
 	type = copy.type;
 	sound = copy.sound;
+	std::cout << "Animal copy constructor called" << std::endl;
 }
 
 Animal::~Animal(){

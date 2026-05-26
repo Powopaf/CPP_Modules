@@ -5,18 +5,21 @@ Cat::Cat() : Animal("Meow") {
 	name = "";
 	type = "Cat";
 	brain = new Brain();
+	std::cout << "Cat constructor called" << std::endl;
 }
 
 Cat::Cat(const std::string name) : Animal("Meow") {
 	this->name = name;
 	type = "Cat";
 	brain = new Brain();
+	std::cout << "Cat constructor called" << std::endl;
 }
 
 Cat::Cat(const Cat& copy) : Animal(copy) {
 	name = copy.name;
 	type = copy.type;
 	brain = new Brain(*copy.brain);
+	std::cout << "Cat copy constructor called" << std::endl;
 }
 
 Cat::~Cat() {
@@ -32,4 +35,12 @@ Cat& Cat::operator=(const Cat& other) {
 		*brain = *other.brain;
 	}
 	return *this;
+}
+
+void Cat::makeSound() {
+	std::cout << "Meow" << std::endl;
+}
+
+Brain* Cat::getBrain() const {
+	return brain;
 }
