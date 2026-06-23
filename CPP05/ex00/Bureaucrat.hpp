@@ -18,17 +18,19 @@ class Bureaucrat {
 
 	const std::string& getName() const;
 	int getGrade() const;
+	void incrementGrade();
+	void decrementGrade();
 
 	class GradeTooHighException : public std::exception {
 		public:
-			const char* what() const throw() override {
-				return "Grade is too higt (highest grade is 1)";
+			const char* what() const throw() {
+				return "Grade is too high (highest grade is 1)";
 			}
 	};
 
 	class GradeTooLowException : public std::exception {
 		public:
-			const char* what() const throw() override {
+			const char* what() const throw() {
 				return "Grade is too low (min 150)";
 			}
 	};
