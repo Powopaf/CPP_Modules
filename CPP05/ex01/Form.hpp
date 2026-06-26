@@ -2,14 +2,17 @@
 #define FORM_HPP
 
 #include <string>
-#include <Bureaucrat.hpp>
+#include <exception>
+#include <iostream>
+
+class Bureaucrat;
 
 class Form {
     private:
-        const std::string name;
-        bool sign = false;
-        const int gradeToSign;
-        const int gradeToExecute;
+        std::string name;
+        bool sign;
+        int gradeToSign;
+        int gradeToExecute;
         Form();
     public:
         Form(const std::string& name, int gradeTosign, int gradeToExecute);
