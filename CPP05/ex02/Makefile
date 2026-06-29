@@ -3,9 +3,12 @@ CFLAGS =  -Wall -Wextra -Werror -MMD -MP -std=c++98
 NAME = bureau.out
 LIBS =
 
-SRC = ./main.cpp \
-	  ./Bureaucrat.cpp \
-	  ./Form.cpp
+SRC = ./Bureaucrat.cpp \
+	  ./AForm.cpp \
+	  ./PresidentialPardonForm.cpp \
+	  ./RobotomyRequestForm.cpp \
+	  ./ShrubberyCreationForm.cpp \
+	  ./main.cpp
 
 OBJ = $(addprefix .obj/,$(SRC:.cpp=.o))
 DEP = $(addprefix .obj/,$(SRC:.cpp=.d))
