@@ -1,3 +1,4 @@
+*.json
 *_shrubbery
 .vscode/
 CPP01/ex06/harlFilter
