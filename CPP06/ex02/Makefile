@@ -1,12 +1,9 @@
 CC = c++
 CFLAGS =  -Wall -Wextra -Werror -MMD -MP -std=c++98
-NAME = serializer.out
+NAME = base.out
 LIBS =
 
 SRC = ./main.cpp \
-	  ./A.cpp \
-	  ./B.cpp \
-	  ./C.cpp \
 	  ./Base.cpp
 
 OBJ = $(addprefix .obj/,$(SRC:.cpp=.o))
