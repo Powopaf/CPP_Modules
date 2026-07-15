@@ -1,9 +1,10 @@
 CC = c++
 CFLAGS =  -Wall -Wextra -Werror -MMD -MP -std=c++98
-NAME = templates.out
+NAME = span.out
 LIBS =
 
 SRC = ./main.cpp \
+	  ./Span.cpp
 
 OBJ = $(addprefix .obj/,$(SRC:.cpp=.o))
 DEP = $(addprefix .obj/,$(SRC:.cpp=.d))
