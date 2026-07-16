@@ -19,5 +19,4 @@ class MutantStack : public std::stack<T>{
         reverse_iterator rend();
 };
 
-#include "MutantStack.tpp"
 #endif
