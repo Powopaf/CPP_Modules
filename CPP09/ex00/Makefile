@@ -4,6 +4,7 @@ NAME = btc
 LIBS =
 
 SRC = ./main.cpp \
+	./BitcoinExchange.cpp
 
 OBJ = $(addprefix .obj/,$(SRC:.cpp=.o))
 DEP = $(addprefix .obj/,$(SRC:.cpp=.d))

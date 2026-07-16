@@ -1,32 +1,53 @@
 #ifndef BITCOINEXCHANGE_HPP
 #define BITCOINEXCHANGE_HPP
 
-#include <cstddef>
+#include <exception>
 #include <map>
 #include <ostream>
 #include <string>
 
 class BitcoinExchange {
     private:
-        std::map<std::string, double> db;
         std::string file_name;
+        std::multimap<std::string, double> db;
+
         BitcoinExchange();
     public:
+        static const char* csv;
+
         BitcoinExchange(const std::string& file_name);
         BitcoinExchange(const BitcoinExchange& copy);
         BitcoinExchange& operator=(const BitcoinExchange& other);
         ~BitcoinExchange() {}
 
-        size_t isFileValid();
+        const std::multimap<std::string, double>& getDb() const;
 
-        class InvalidFile {
+        class CanNotOpenFile : public std::exception {
             public:
                 const char* what() const throw() {
-                    return "The Data base provide is not valid";
+                    return "Error: Can't open the file provide";
+                }
+        };
+        class InvalidFile : public std::exception {
+            public:
+                const char* what() const throw() {
+                    return "Error: The data base inside the file is invalid";
+                }
+        };
+        class CanNotOpenFileCSV : public std::exception {
+            public:
+            const char* what() const throw() {
+                return "Error: Can't open CSV file";
+            }
+        };
+        class InvalidCSV : public std::exception {
+            public:
+                const char* what() const throw() {
+                    return "Error: Invalid CSV file";
                 }
         };
 };
 
-std::ostream& operator<<(std::ostream& out, BitcoinExchange& btc);
+std::ostream& operator<<(std::ostream& out, const BitcoinExchange& btc);
 
 #endif
