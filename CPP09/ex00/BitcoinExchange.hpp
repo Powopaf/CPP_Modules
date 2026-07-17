@@ -3,37 +3,23 @@
 
 #include <exception>
 #include <map>
-#include <ostream>
 #include <string>
+
+#define CSV_NAME "./data.csv"
 
 class BitcoinExchange {
     private:
-        std::string file_name;
-        std::multimap<std::string, double> db;
-
-        BitcoinExchange();
+    std::multimap<std::string, double> db;
     public:
-        static const char* csv;
-
-        BitcoinExchange(const std::string& file_name);
+        BitcoinExchange();
         BitcoinExchange(const BitcoinExchange& copy);
         BitcoinExchange& operator=(const BitcoinExchange& other);
         ~BitcoinExchange() {}
 
         const std::multimap<std::string, double>& getDb() const;
+        static std::string trim(const std::string& s);
+        static bool IsValidDate(std::string date);
 
-        class CanNotOpenFile : public std::exception {
-            public:
-                const char* what() const throw() {
-                    return "Error: Can't open the file provide";
-                }
-        };
-        class InvalidFile : public std::exception {
-            public:
-                const char* what() const throw() {
-                    return "Error: The data base inside the file is invalid";
-                }
-        };
         class CanNotOpenFileCSV : public std::exception {
             public:
             const char* what() const throw() {
@@ -47,7 +33,5 @@ class BitcoinExchange {
                 }
         };
 };
-
-std::ostream& operator<<(std::ostream& out, const BitcoinExchange& btc);
 
 #endif
