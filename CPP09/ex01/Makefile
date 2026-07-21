@@ -1,6 +1,6 @@
 CC = c++
 CFLAGS =  -Wall -Wextra -Werror -MMD -MP -std=c++98
-NAME = btc
+NAME = RPN 
 LIBS =
 
 SRC = ./main.cpp \

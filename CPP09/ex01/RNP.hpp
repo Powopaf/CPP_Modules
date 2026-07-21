@@ -2,7 +2,6 @@
 #define RNP_HPP
 
 #include <exception>
-#include <stack>
 #include <string>
 
 class Rnp {
@@ -17,12 +16,19 @@ class Rnp {
     ~Rnp() {}
 
     int solve();
+    std::string convert();
 
     class BadChar : public std::exception {
         public:
-        const char* what(char c) const throw() {
-            return "Error: Bad char in input string: " + c;
+        const char* what() const throw() {
+            return "Error: Bad char in input string";
         }
+    };
+    class BadSyntax : public std::exception {
+        public:
+            const char* what() const throw() {
+                return "Error: bad RPN syntax";
+            }
     };
 };
 
