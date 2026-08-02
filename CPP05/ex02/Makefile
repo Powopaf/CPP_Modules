@@ -1,5 +1,5 @@
 CC = c++
-CFLAGS =  -Wall -Wextra -Werror -MMD -MP -std=c++98
+CFLAGS = -Wall -Wextra -Werror -MMD -MP -std=c++98
 NAME = bureau.out
 LIBS =
 
