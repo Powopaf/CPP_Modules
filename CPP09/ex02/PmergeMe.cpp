@@ -2,7 +2,6 @@
 #include <cctype>
 #include <cstddef>
 #include <cstdlib>
-#include <ostream>
 #include <sstream>
 #include <string>
 #include <vector>
@@ -15,7 +14,8 @@ PmergeMe::PmergeMe(const std::string& input) {
             if (!std::isdigit(word[i]))
                 throw PmergeMe::NotADigit();
         }
-        numbers.push_back(std::atoi(word.c_str()));
+        vect.push_back(std::atoi(word.c_str()));
+        queue.push_back(std::atoi(word.c_str()));
     }
 }
 
@@ -26,7 +26,8 @@ PmergeMe::PmergeMe(const PmergeMe& copy) {
 PmergeMe& PmergeMe::operator=(const PmergeMe& other) {
     if (this == &other)
         return *this;
-    this->numbers = other.numbers;
+    this->vect = other.vect;
+    this->queue = other.queue;
     return *this;
 }
 
@@ -34,19 +35,14 @@ void PmergeMe::sortVect() {
     
 }
 
-void PmergeMe::sortArray() {
+void PmergeMe::sortQueue() {
 
 }
 
-std::vector<int> PmergeMe::getNumbers() const  {
-    return numbers;
+std::vector<int> PmergeMe::getVect() const  {
+    return vect;
 }
 
-std::ostream& operator<<(std::ostream& out, PmergeMe& pmm) {
-    for (size_t i = 0; i < pmm.getNumbers().size(); i++) {
-        out << pmm.getNumbers()[i];
-        if (i + 1 < pmm.getNumbers().size())
-            out << " ";
-    }
-    return out;
+std::deque<int> PmergeMe::getQueue() const {
+    return queue;
 }

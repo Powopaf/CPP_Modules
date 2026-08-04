@@ -1,13 +1,14 @@
 #ifndef PMERGEME_HPP
 #define PMERGEME_HPP
 
-#include <ostream>
+#include <deque>
 #include <string>
 #include <vector>
 
 class PmergeMe {
     private:
-        std::vector<int> numbers;
+        std::vector<int> vect;
+        std::deque<int> queue;
         PmergeMe();
     public:
         PmergeMe(const std::string& intput);
@@ -16,8 +17,9 @@ class PmergeMe {
         ~PmergeMe() {}
 
         void sortVect();
-        void sortArray();
-        std::vector<int> getNumbers() const;
+        void sortQueue();
+        std::vector<int> getVect() const;
+        std::deque<int> getQueue() const;
 
         class NotADigit {
             public:
@@ -26,7 +28,5 @@ class PmergeMe {
             }
         };
 };
-
-std::ostream& operator<<(std::ostream& out, PmergeMe& pmm);
 
 #endif
