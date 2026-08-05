@@ -21,7 +21,6 @@ int main(int argc, char** argv) {
     std::string numbers = createNumbers(argv, argc);
     try {
         PmergeMe pmm(numbers);
-        std::cout << "Before: " << pmm << std::endl;
     } catch (std::exception& e) {
         std::cerr << e.what() << std::endl;
     }
