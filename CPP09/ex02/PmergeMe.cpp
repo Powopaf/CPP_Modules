@@ -32,7 +32,14 @@ PmergeMe& PmergeMe::operator=(const PmergeMe& other) {
 }
 
 void PmergeMe::sortVect() {
-    
+    if (vect.size() <= 1)
+        return;
+    int straggler = 0;
+    if (vect.size() % 2 != 0) {
+        straggler = vect.back();
+        vect.pop_back();
+    }
+    pairs
 }
 
 void PmergeMe::sortQueue() {
