@@ -6,27 +6,15 @@
 #include <vector>
 
 class PmergeMe {
-    private:
-        std::vector<int> vect;
-        std::deque<int> queue;
-        PmergeMe();
     public:
-        PmergeMe(const std::string& intput);
-        PmergeMe(const PmergeMe& copy);
-        PmergeMe& operator=(const PmergeMe& other);
-        ~PmergeMe() {}
-
-        void sortVect();
-        void sortQueue();
-        std::vector<int> getVect() const;
-        std::deque<int> getQueue() const;
-
-        class NotADigit {
-            public:
-            const char* what() const throw() {
-                return "Error: input string contain other char than digit";
-            }
-        };
+        static std::vector<int> sortVect(std::vector<int> v);
+        static std::deque<int> sortQueue(std::deque<int> d);
+	private:
+        // Prevent instantiation: declare canonical form special members as private
+		PmergeMe();
+		PmergeMe(const PmergeMe& other);
+		~PmergeMe();
+		PmergeMe& operator=(const PmergeMe& other);
 };
 
 #endif
