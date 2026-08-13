@@ -54,14 +54,14 @@ Array<T>::~Array() {
 
 template<typename T>
 T& Array<T>::operator[](unsigned int index) {
-    if (index < 0 || index > s)
+    if (index >= s)
         throw std::out_of_range("index is out of range");
     return data[index];
 }
 
 template<typename T>
 const T& Array<T>::operator[](unsigned int index) const {
-        if (index < 0 || index > s)
+        if (index >= s)
         throw std::out_of_range("index is out of range");
     return data[index];
 }
