@@ -1,17 +1,23 @@
 #ifndef EASYFIND_HPP
 #define EASYFIND_HPP
 
+#include <algorithm>
+#include <exception>
+
 template<typename T>
-int find(T container, int target) {
-    int res = 0;
-    typename T::iterator it = container.begin();
-    while (it != container.end()) {
-        if (*it == target)
-            return res;
-        it++;
-        res++;
-    }
-    return -1;
+typename T::iterator easyfind(T &container, int target) {
+    typename T::iterator result = std::find(container.begin(), container.end(), target);
+    if (result == container.end())
+        throw std::exception();
+    return result;
+}
+
+template<typename T>
+typename T::const_iterator easyfind(const T &container, int target) {
+    typename T::const_iterator result = std::find(container.begin(), container.end(), target);
+    if (result == container.end())
+        throw std::exception();
+    return result;
 }
 
 #endif

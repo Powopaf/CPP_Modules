@@ -7,6 +7,6 @@ int main() {
     v.push_back(1);
     v.push_back(2);
     v.push_back(3);
-    std::cout << find(v, 1) << std::endl;
+    std::cout << *easyfind(v, 1) << std::endl;
     return 0;
 }
