@@ -36,9 +36,9 @@ std::vector<int> PmergeMe::sortVect(std::vector<int> v) {
 
 static std::deque<int> fusionQ(std::deque<int> a, std::deque<int> b) {
 	if (a.size() <= 0)
-		return a;
-	if (b .size() <= 0)
 		return b;
+	if (b .size() <= 0)
+		return a;
 	if (a[0] <= b[0]) {
 		std::deque<int> restA(a.begin() + 1, a.end());
 		std::deque<int> merged;
